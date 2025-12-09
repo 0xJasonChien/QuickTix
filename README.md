@@ -133,10 +133,3 @@
   * **Baseline (Phase 1)**: QPS (Queries Per Second) 約為 `X`，出現超賣現象。
   * **Optimized (Phase 3)**: QPS 提升至 `Y`，超賣問題解決，DB CPU 負載穩定。
 
------
-
-### 下一步建議
-
-您可以直接將上述內容複製到專案根目錄的 `README.md` 檔案中。
-
-**是否需要我針對「階段二」中的 Redis 預減庫存邏輯，先幫您寫一段 Java 的虛擬碼 (Pseudo code) 範例，讓您放在 Spec 裡面看起來更豐富？**
