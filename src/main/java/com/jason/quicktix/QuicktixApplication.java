@@ -8,8 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing // <--- 加上這行，BaseEntity 的時間才會自動生成
 public class QuicktixApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(QuicktixApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(QuicktixApplication.class, args);
+  }
 }
