@@ -5,3 +5,12 @@ repos:
   - id: pretty-format-java
     args: [ "--autofix" ]
     # --autofix: 自動修正程式碼
+
+- repo: https://github.com/gherynos/pre-commit-java
+  rev: v0.6.20
+  hooks:
+  - id: checkstyle
+    # 使用 Checkstyle 內建的 Google 規範，免去自己維護 xml 的痛苦
+    args: [ "-c", "/google_checks.xml" ]
+    # 排除 module-info.java (如果你用不到模組化)
+    exclude: module-info.java

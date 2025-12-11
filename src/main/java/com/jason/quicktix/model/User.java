@@ -1,17 +1,12 @@
-package com.jason.quicktix.entity;
+package com.jason.quicktix.model;
 
+import com.jason.quicktix.comm.base.BaseEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class User {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+public class User extends BaseEntity {
 
   private String username;
 

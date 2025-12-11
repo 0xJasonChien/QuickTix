@@ -1,4 +1,4 @@
-package com.jason.quicktix.entity;
+package com.jason.quicktix.model;
 
 import com.jason.quicktix.comm.base.BaseEntity;
 import jakarta.persistence.Entity;
