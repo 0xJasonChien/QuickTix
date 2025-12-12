@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: quicktix
+
+  # --- PostgreSQL 資料庫設定 ---
+  datasource:
+    # 格式: jdbc:postgresql://[host]:[port]/[database]
+    url: jdbc:postgresql://localhost:5432/quicktix_db
+    username: postgres       # Postgres 預設使用者通常是 postgres
+    password: deku-pg  # <--- 記得改成你的密碼
+    driver-class-name: org.postgresql.Driver

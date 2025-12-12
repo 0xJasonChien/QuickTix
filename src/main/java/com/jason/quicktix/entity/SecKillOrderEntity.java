@@ -1,4 +1,4 @@
-package com.jason.quicktix.model;
+package com.jason.quicktix.entity;
 
 import com.jason.quicktix.comm.base.BaseEntity;
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class SecKillOrder extends BaseEntity {
+public class SecKillOrderEntity extends BaseEntity {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
@@ -15,7 +15,7 @@ public class SecKillOrder extends BaseEntity {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "good_id")
-  private Good good;
+  private GoodEntity good;
 
   private Integer amount;
 }

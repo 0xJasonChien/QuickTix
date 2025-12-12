@@ -3,16 +3,22 @@ package com.jason.quicktix.comm.base;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-public class BaseDTO implements Serializable {
+@Data
+@SuperBuilder // <--- 關鍵：父類別也要加
+@NoArgsConstructor // SuperBuilder 通常建議搭配這兩個建構子註解以避免錯誤
+@AllArgsConstructor
+public class BaseDto implements Serializable {
+
+  private Long id;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-  private LocalDateTime createTime;
+  private LocalDateTime createdAt;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-  private LocalDateTime updateTime;
+  private LocalDateTime updatedAt;
 }

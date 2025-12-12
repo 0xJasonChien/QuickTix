@@ -1,4 +1,4 @@
-package com.jason.quicktix.model;
+package com.jason.quicktix.entity;
 
 import com.jason.quicktix.comm.base.BaseEntity;
 import jakarta.persistence.Entity;
@@ -15,8 +15,8 @@ public class User extends BaseEntity {
   private String email;
 
   @OneToMany(mappedBy = "user")
-  private List<Order> orders;
+  private List<OrderEntity> orders;
 
   @OneToMany(mappedBy = "user")
-  private List<SecKillOrder> secKillOrders;
+  private List<SecKillOrderEntity> secKillOrders;
 }

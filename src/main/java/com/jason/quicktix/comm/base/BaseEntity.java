@@ -7,8 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -17,8 +19,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @MappedSuperclass
 // 2. 啟動 JPA Auditing 監聽器，這樣 @CreatedDate 才會生效
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
+@SuperBuilder // <--- 關鍵：父類別也要加
+@NoArgsConstructor // SuperBuilder 通常建議搭配這兩個建構子註解以避免錯誤
+@AllArgsConstructor
 public class BaseEntity {
 
   @Id

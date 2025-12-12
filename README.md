@@ -133,3 +133,25 @@
   * **Baseline (Phase 1)**: QPS (Queries Per Second) 約為 `X`，出現超賣現象。
   * **Optimized (Phase 3)**: QPS 提升至 `Y`，超賣問題解決，DB CPU 負載穩定。
 
+-----
+
+## 🛠 IDE 設定：Lombok（VS Code）
+
+- 建議安裝的 VS Code Extensions：`GabrielBB.lombok`、`vscjava.vscode-java-pack`、`vscjava.vscode-maven`。
+- 可在 Extensions 視窗安裝，或使用 CLI：
+
+```bash
+code --install-extension GabrielBB.lombok
+code --install-extension vscjava.vscode-java-pack
+code --install-extension vscjava.vscode-maven
+```
+
+- 安裝後重啟 VS Code，重新匯入/重載專案。若編輯器仍看到 `GoodDto.builder()` 找不到，請執行：
+
+```bash
+./mvnw -DskipTests package
+```
+
+  以上會觸發 Lombok 的編譯階段代碼生成，編輯器應會在重新載入後辨識 `builder()`。
+
+

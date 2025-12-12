@@ -1,23 +1,25 @@
 package com.jason.quicktix.service;
 
-import com.jason.quicktix.model.Good;
+import com.jason.quicktix.dto.GoodDto;
+import com.jason.quicktix.entity.GoodEntity;
+import com.jason.quicktix.mapper.GoodMapper;
 import com.jason.quicktix.repository.GoodRepository;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class GoodService {
   private final GoodRepository goodRepository;
+  private final GoodMapper goodMapper;
 
-  public GoodService(GoodRepository goodRepository) {
-    this.goodRepository = goodRepository;
+  public List<GoodDto> getAllGoods() {
+    List<GoodEntity> goods = goodRepository.findAll();
+    return goodMapper.toDtoList(goods);
   }
 
-  public List<Good> getAllGoods() {
-    return goodRepository.findAll();
-  }
-
-  public Good getGoodById(Long id) {
+  public GoodEntity getGoodById(Long id) {
     return goodRepository.findById(id).orElse(null);
   }
 }
