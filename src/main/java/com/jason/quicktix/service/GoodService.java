@@ -32,4 +32,8 @@ public class GoodService {
     GoodEntity savedEntity = goodRepository.save(goodEntity);
     return goodMapper.toDto(savedEntity);
   }
+
+  public void deleteGood(Long id) {
+    goodRepository.deleteById(id);
+  }
 }
