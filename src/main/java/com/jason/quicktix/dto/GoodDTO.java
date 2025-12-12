@@ -1,6 +1,7 @@
 package com.jason.quicktix.dto;
 
 import com.jason.quicktix.comm.base.BaseDto;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +15,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class GoodDto extends BaseDto {
-  private String name;
-  private BigDecimal price;
-  private Integer stock;
+  @NotNull private String name;
+
+  @NotNull private BigDecimal price;
+
+  @NotNull private Integer stock;
 }

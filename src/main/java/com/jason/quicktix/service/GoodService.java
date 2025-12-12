@@ -19,7 +19,17 @@ public class GoodService {
     return goodMapper.toDtoList(goods);
   }
 
-  public GoodEntity getGoodById(Long id) {
-    return goodRepository.findById(id).orElse(null);
+  public GoodDto getGoodById(Long id) {
+    GoodEntity goodEntity =
+        goodRepository
+            .findById(id)
+            .orElseThrow(() -> new RuntimeException("Good not found with id: " + id));
+    return goodMapper.toDto(goodEntity);
+  }
+
+  public GoodDto createGood(GoodDto goodDto) {
+    GoodEntity goodEntity = goodMapper.toEntity(goodDto);
+    GoodEntity savedEntity = goodRepository.save(goodEntity);
+    return goodMapper.toDto(savedEntity);
   }
 }
