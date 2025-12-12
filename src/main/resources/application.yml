@@ -9,3 +9,31 @@ spring:
     username: postgres       # Postgres 預設使用者通常是 postgres
     password: deku-pg  # <--- 記得改成你的密碼
     driver-class-name: org.postgresql.Driver
+
+  flyway:
+      enabled: true
+      baseline-on-migrate: true # 如果是對舊專案導入，這很重要
+      locations: classpath:db/migration  # 預設位置，可自訂
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none # 建議改為 validate，讓 JPA 檢查 Entity 和 DB 是否對得上，而不是去改 DB結構
+
+    properties:
+      # Jakarta Persistence 設定 (Spring Boot 3+)
+      jakarta:
+        persistence:
+          schema-generation:
+            # 3. 告訴它來源是你的 Entity Metadata
+            create-source: metadata
+
+            scripts:
+              # 1. 告訴 Hibernate 不要執行，而是把 Schema 寫入檔案
+              # (如果你是舊專案想看差異，可以用 drop-and-create，但通常 create 比較乾淨)
+              action: create
+
+              # 2. 指定生成的檔案名稱 (會產生在專案根目錄，或是你指定的路徑)
+              create-target: src/main/resources/create_schema.sql
+      hibernate:
+        format_sql: true

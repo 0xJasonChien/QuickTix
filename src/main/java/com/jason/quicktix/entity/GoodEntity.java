@@ -3,6 +3,7 @@ package com.jason.quicktix.entity;
 import com.jason.quicktix.comm.base.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -17,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Table(name = "goods")
 public class GoodEntity extends BaseEntity {
 
   private String name;
