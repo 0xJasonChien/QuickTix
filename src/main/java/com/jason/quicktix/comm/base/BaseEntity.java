@@ -15,9 +15,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-// 1. 標記為 MappedSuperclass，表示這不是一個完整的 Table，而是讓子類別繼承欄位用
+/** The base entity class with common fields. */
 @MappedSuperclass
-// 2. 啟動 JPA Auditing 監聽器，這樣 @CreatedDate 才會生效
 @EntityListeners(AuditingEntityListener.class)
 @Data
 @SuperBuilder // <--- 關鍵：父類別也要加
@@ -25,16 +24,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @AllArgsConstructor
 public class BaseEntity {
 
+  /* Primary key ID */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  // 3. 自動填入創建時間，updatable = false 防止更新時被修改
+  /** Creation timestamp. */
   @CreatedDate
   @Column(name = "created_at", nullable = false, updatable = false)
   private LocalDateTime createdAt;
 
-  // 4. 自動填入最後修改時間
+  /** Last update timestamp. */
   @LastModifiedDate
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
