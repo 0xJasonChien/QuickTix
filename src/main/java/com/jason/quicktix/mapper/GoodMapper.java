@@ -11,6 +11,9 @@ public class GoodMapper implements BaseMapper<GoodEntity, GoodDto> {
   @Override
   public GoodDto toDto(GoodEntity entity) {
     return GoodDto.builder()
+        .id(entity.getId())
+        .createdAt(entity.getCreatedAt())
+        .updatedAt(entity.getUpdatedAt())
         .name(entity.getName())
         .price(entity.getPrice())
         .stock(entity.getStock())

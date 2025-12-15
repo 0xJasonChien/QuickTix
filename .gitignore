@@ -34,3 +34,6 @@ build/
 
 ### Environment Files ###
 .env
+
+### SQL Scripts ###
+src/main/resources/create_schema.sql
