@@ -24,8 +24,6 @@ public class UserEntity extends BaseEntity {
 
   private String username;
 
-  private String password;
-
   private String email;
 
   @OneToMany(mappedBy = "user")

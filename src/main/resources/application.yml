@@ -18,7 +18,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none # 建議改為 validate，讓 JPA 檢查 Entity 和 DB 是否對得上，而不是去改 DB結構
+      ddl-auto: validate # 建議改為 validate，讓 JPA 檢查 Entity 和 DB 是否對得上，而不是去改 DB結構
 
     properties:
       # Jakarta Persistence 設定 (Spring Boot 3+)
