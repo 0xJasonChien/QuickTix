@@ -31,7 +31,4 @@ public class GoodEntity extends BaseEntity {
 
   @OneToMany(mappedBy = "good")
   private List<OrderEntity> orders;
-
-  @OneToMany(mappedBy = "good")
-  private List<SecKillOrderEntity> secKillOrders;
 }

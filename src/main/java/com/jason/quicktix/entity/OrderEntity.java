@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Entity(name = "orders")
+@Entity
 @Table(name = "orders")
 public class OrderEntity extends BaseEntity {
 

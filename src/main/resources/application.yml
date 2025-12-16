@@ -18,7 +18,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: validate # 建議改為 validate，讓 JPA 檢查 Entity 和 DB 是否對得上，而不是去改 DB結構
+      ddl-auto: create # 建議改為 validate，讓 JPA 檢查 Entity 和 DB 是否對得上，而不是去改 DB結構
 
     properties:
       # Jakarta Persistence 設定 (Spring Boot 3+)
@@ -31,7 +31,7 @@ spring:
             scripts:
               # 1. 告訴 Hibernate 不要執行，而是把 Schema 寫入檔案
               # (如果你是舊專案想看差異，可以用 drop-and-create，但通常 create 比較乾淨)
-              action: none
+              action: create
 
               # 2. 指定生成的檔案名稱 (會產生在專案根目錄，或是你指定的路徑)
               create-target: src/main/resources/create_schema.sql

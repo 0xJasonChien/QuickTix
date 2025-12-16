@@ -28,7 +28,4 @@ public class UserEntity extends BaseEntity {
 
   @OneToMany(mappedBy = "user")
   private List<OrderEntity> orders;
-
-  @OneToMany(mappedBy = "user")
-  private List<SecKillOrderEntity> secKillOrders;
 }
