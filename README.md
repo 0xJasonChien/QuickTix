@@ -1,4 +1,4 @@
-# Spring Boot 購票系統
+# 購票系統
 
 ## Project Overview
 
